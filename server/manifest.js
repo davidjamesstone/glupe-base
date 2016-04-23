@@ -9,7 +9,14 @@ const manifest = {
       labels: config.server.labels
     }
   ],
-  registrations: []
+  registrations: [
+    {
+      plugin: {
+        register: 'good',
+        options: config.logging
+      }
+    }
+  ]
 }
 
 module.exports = manifest
