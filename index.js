@@ -1,8 +1,11 @@
-const Glupe = require('glupe')
+const Glue = require('glue')
 const config = require('./config')
-const appName = require('./package.json').name
+const manifest = require('./server/manifest')
+const pkg = require('./package.json')
+const appName = pkg.name
+const appVersion = pkg.version
 
-Glupe.compose(__dirname, config, function (err, server) {
+Glue.compose(manifest, function (err, server) {
   if (err) {
     throw err
   }
@@ -13,13 +16,14 @@ Glupe.compose(__dirname, config, function (err, server) {
   server.start(function (err) {
     var details = {
       name: appName,
+      version: appVersion,
       info: server.info
     }
 
     if (err) {
       details.error = err
       details.message = 'Failed to start ' + details.name
-      server.log('error', details)
+      server.log(['error', 'info'], details)
       throw err
     } else {
       details.config = config
