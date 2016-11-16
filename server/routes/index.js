@@ -3,7 +3,9 @@ module.exports = {
   path: '/',
   config: {
     handler: function (request, reply) {
-      return reply('hello')
+      return reply({
+        hello: 'World'
+      })
     }
   }
 }

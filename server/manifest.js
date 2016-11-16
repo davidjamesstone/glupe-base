@@ -1,11 +1,21 @@
 const config = require('../config')
 
 const manifest = {
-  server: {},
+  server: {
+    connections: {
+      routes: {
+        validate: {
+          options: {
+            abortEarly: false
+          }
+        }
+      }
+    }
+  },
   connections: [
     {
       port: config.server.port,
-      host: config.server.host,
+      host: config.server.home,
       labels: config.server.labels
     }
   ],
