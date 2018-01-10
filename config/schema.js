@@ -7,5 +7,8 @@ const serverSchema = Joi.object().required().keys({
 
 module.exports = {
   server: serverSchema,
-  logging: Joi.object() // good logging config
+  logging: Joi.object(), // good logging config
+  views: Joi.object({
+    cache: Joi.boolean().required()
+  }).required()
 }

@@ -3,7 +3,7 @@ const Code = require('code')
 const lab = exports.lab = Lab.script()
 const composeServer = require('../server')
 
-lab.experiment('API test', function () {
+lab.experiment('Web test', function () {
   let server
 
   // Create server before each test
@@ -19,7 +19,7 @@ lab.experiment('API test', function () {
 
     const response = await server.inject(options)
     Code.expect(response.statusCode).to.equal(200)
-    Code.expect(response.result).to.equal({ hello: 'world' })
+    Code.expect(response.headers['content-type']).to.include('text/html')
   })
 
   lab.test('GET /about route works', async () => {
@@ -30,6 +30,6 @@ lab.experiment('API test', function () {
 
     const response = await server.inject(options)
     Code.expect(response.statusCode).to.equal(200)
-    Code.expect(response.result).to.equal({ ok: 200 })
+    Code.expect(response.headers['content-type']).to.include('text/html')
   })
 })

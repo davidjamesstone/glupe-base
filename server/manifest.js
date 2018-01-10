@@ -14,12 +14,36 @@ const manifest = {
   },
   register: {
     plugins: [
+      'inert',
       {
         plugin: 'good',
         options: config.logging
       },
-      './plugin/router',
-      './plugin/logerrors'
+      {
+        plugin: 'vision',
+        options: {
+          engines: {
+            html: require('handlebars')
+          },
+          layout: true,
+          relativeTo: __dirname,
+          path: 'views',
+          isCached: config.views.cache,
+          helpersPath: 'views/helpers',
+          partialsPath: 'views/partials',
+          context: {
+            meta: {
+              title: 'Hapi Glupe',
+              description: 'My Hapi Website',
+              keyowrds: 'foo, bar',
+              author: '@me'
+            }
+          }
+        }
+      },
+      './plugins/router',
+      './plugins/log-errors',
+      './plugins/error-pages'
     ]
   }
 }
