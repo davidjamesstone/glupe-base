@@ -2,9 +2,9 @@
 {
   "name": "glupe-base",
   "script": "index.js",
-  "node_args": "--debug",
+  "node_args": "--inspect",
   "watch": true,
-  "ignore_watch" : ["node_modules", "bin", "logs"]
+  "ignore_watch" : ["node_modules", "bin", "logs", "test"]
 }
 
 /* Production:

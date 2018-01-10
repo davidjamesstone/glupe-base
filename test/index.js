@@ -1,35 +1,35 @@
 const Lab = require('lab')
 const Code = require('code')
 const lab = exports.lab = Lab.script()
-const composeServer = require('..')
+const composeServer = require('../server')
 
-lab.experiment('Application test', function () {
-  var server
+lab.experiment('API test', function () {
+  let server
 
-  // Start the server before each test
-  lab.before((done) => {
-    console.log('Composing server')
-    composeServer(function (err, svr) {
-      if (err) {
-        return done(err)
-      }
-
-      console.log('Server composed')
-      server = svr
-      server.initialize(done)
-    })
+  // Create server before each test
+  lab.before(async () => {
+    server = await composeServer()
   })
 
-  // Test robots.txt
-  lab.test('Home index returns 200 OK', function (done) {
-    var options = {
+  lab.test('GET / route works', async () => {
+    const options = {
       method: 'GET',
       url: '/'
     }
 
-    server.inject(options, function (response) {
-      Code.expect(response.statusCode).to.equal(200)
-      server.stop(done)
-    })
+    const response = await server.inject(options)
+    Code.expect(response.statusCode).to.equal(200)
+    Code.expect(response.result).to.equal({ hello: 'world' })
+  })
+
+  lab.test('GET /about route works', async () => {
+    const options = {
+      method: 'GET',
+      url: '/about'
+    }
+
+    const response = await server.inject(options)
+    Code.expect(response.statusCode).to.equal(200)
+    Code.expect(response.result).to.equal({ ok: 200 })
   })
 })

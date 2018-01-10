@@ -1,42 +1,29 @@
-const config = require('./config')
-const composeServer = require('./server')
 const pkg = require('./package.json')
-const appName = pkg.name
-const appVersion = pkg.version
+const composeServer = require('./server')
 
-if (!module.parent) {
-  // There's no callee so we're running
-  // normally and will compose and start a server
-  composeServer(function (err, server) {
-    if (err) {
-      throw err
-    }
+async function startServer () {
+  let server
+  const info = {}
 
-    /**
-     * Start the server
-     */
-    server.start(function (err) {
-      var details = {
-        name: appName,
-        version: appVersion,
-        info: server.info
-      }
+  try {
+    // Compose and start the server
+    server = await composeServer()
+    await server.start()
 
-      if (err) {
-        details.error = err
-        details.message = 'Failed to start ' + details.name
-        server.log(['error', 'info'], details)
-        throw err
-      } else {
-        details.config = config
-        details.message = 'Started ' + details.name
-        server.log('info', details)
-        console.info('Server running at:', server.info)
-      }
-    })
-  })
-} else {
-  // There's a callee so we're probably running a test.
-  // In which case just export the compose server function
-  module.exports = composeServer
+    // Log server start
+    info.uri = server.info.uri
+    info.message = `Started ${pkg.name}@${pkg.version}`
+    server.log('info', info)
+    console.info(info.message, info.uri)
+  } catch (err) {
+    // Log server error
+    info.err = err
+    info.message = `Failed to start ${pkg.name}@${pkg.version}`
+    if (server) server.log(['error', 'info'], info)
+    console.error(info.message, info)
+
+    process.exit(1)
+  }
 }
+
+startServer()

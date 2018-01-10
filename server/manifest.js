@@ -2,31 +2,26 @@ const config = require('../config')
 
 const manifest = {
   server: {
-    connections: {
-      routes: {
-        validate: {
-          options: {
-            abortEarly: false
-          }
+    port: config.server.port,
+    host: config.server.home,
+    routes: {
+      validate: {
+        options: {
+          abortEarly: false
         }
       }
     }
   },
-  connections: [
-    {
-      port: config.server.port,
-      host: config.server.home,
-      labels: config.server.labels
-    }
-  ],
-  registrations: [
-    {
-      plugin: {
-        register: 'good',
+  register: {
+    plugins: [
+      {
+        plugin: 'good',
         options: config.logging
-      }
-    }
-  ]
+      },
+      './plugin/router',
+      './plugin/logerrors'
+    ]
+  }
 }
 
 module.exports = manifest
