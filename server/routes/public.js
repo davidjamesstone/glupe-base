@@ -3,7 +3,7 @@ module.exports = [{
   path: '/robots.txt',
   options: {
     handler: {
-      file: 'server/public/robots.txt'
+      file: 'server/public/static/robots.txt'
     }
   }
 }, {
@@ -12,7 +12,12 @@ module.exports = [{
   options: {
     handler: {
       directory: {
-        path: ['server/public']
+        path: [
+          'server/public/static',
+          'server/public/gft',
+          'server/public/gtm',
+          'server/public/build'
+        ]
       }
     }
   }

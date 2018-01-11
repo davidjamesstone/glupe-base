@@ -11,9 +11,9 @@ const viewsContext = {
   homepageUrl: 'https://www.gov.uk/',
   logoLinkTitle: 'Go to the GOV.UK homepage',
   crownCopyrightMessage: '© Crown copyright',
-  assetPath: '/public/gov/',
+  assetPath: '/public/',
   htmlLang: 'en',
-  headerClass: '',
+  headerClass: 'with-proposition',
   analyticsAccount: analyticsAccount,
   phase: '' // alpha or beta, blank is live and requires no phase banner
 }
