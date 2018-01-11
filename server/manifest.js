@@ -1,4 +1,22 @@
+const handlebars = require('handlebars')
 const config = require('../config')
+const pkg = require('../package.json')
+const analyticsAccount = config.analyticsAccount
+
+const viewsContext = {
+  appVersion: pkg.version,
+  globalHeaderText: 'GOV.UK',
+  pageTitle: 'Service name - GOV.UK',
+  skipLinkMessage: 'Skip to main content',
+  homepageUrl: 'https://www.gov.uk/',
+  logoLinkTitle: 'Go to the GOV.UK homepage',
+  crownCopyrightMessage: '© Crown copyright',
+  assetPath: '/public/gov/',
+  htmlLang: 'en',
+  headerClass: '',
+  analyticsAccount: analyticsAccount,
+  phase: '' // alpha or beta, blank is live and requires no phase banner
+}
 
 const manifest = {
   server: {
@@ -23,7 +41,7 @@ const manifest = {
         plugin: 'vision',
         options: {
           engines: {
-            html: require('handlebars')
+            html: handlebars
           },
           layout: true,
           relativeTo: __dirname,
@@ -31,14 +49,7 @@ const manifest = {
           isCached: config.views.cache,
           helpersPath: 'views/helpers',
           partialsPath: 'views/partials',
-          context: {
-            meta: {
-              title: 'Hapi Glupe',
-              description: 'My Hapi Website',
-              keyowrds: 'foo, bar',
-              author: '@me'
-            }
-          }
+          context: viewsContext
         }
       },
       './plugins/router',
