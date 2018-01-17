@@ -3,7 +3,7 @@ const config = require('../config')
 const manifest = {
   server: {
     port: config.server.port,
-    host: config.server.home,
+    host: config.server.host,
     routes: {
       validate: {
         options: {
