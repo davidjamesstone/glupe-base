@@ -1,0 +1,34 @@
+{
+  "name": "My routes",
+  "description": "My routes for application",
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/",
+      "description": "Home page",
+      "ignore": false,
+      "resource": {
+        "path": "./routes",
+        "name": "home"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/about",
+      "description": "About page",
+      "ignore": false,
+      "resource": {
+        "path": "./routes",
+        "name": "about"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/public/{path*}",
+      "description": "Public directories",
+      "resource": {
+        "path": "./public"
+      }
+    }
+  ]
+}

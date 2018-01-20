@@ -20,8 +20,12 @@
     "good-squeeze": "5.0.2",
     "inert": "5.0.1",
     "joi": "13.1.0",
+    "joi-objectid": "2.0.0",
+    "mongoose": "5.0.0",
     "standard": "10.0.3",
-    "vision": "5.3.1"
+    "vision": "5.3.1",
+    "vsd-db-mongoose": "0.0.3",
+    "vsd-plugin-router": "3.0.1"
   },
   "devDependencies": {
     "code": "5.1.2",

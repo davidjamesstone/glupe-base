@@ -1,0 +1,19 @@
+{
+  "name": "My model name",
+  "schemas": [
+    {
+      "id": "5455627",
+      "name": "NewSchema",
+      "keys": {
+        "items": [
+          {
+            "id": "1194708",
+            "name": "Keyname",
+            "type": "String",
+            "def": {}
+          }
+        ]
+      }
+    }
+  ]
+}

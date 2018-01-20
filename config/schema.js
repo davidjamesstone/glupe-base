@@ -10,5 +10,8 @@ module.exports = {
   logging: Joi.object(), // good logging config
   views: Joi.object({
     cache: Joi.boolean().required()
-  }).required()
+  }).required(),
+  db: Joi.object().required().keys({
+    uri: Joi.string().uri().required()
+  })
 }

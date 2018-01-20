@@ -1,3 +1,4 @@
+const path = require('path')
 const config = require('../config')
 
 const manifest = {
@@ -41,7 +42,13 @@ const manifest = {
           }
         }
       },
-      './plugins/router',
+      {
+        plugin: 'vsd-plugin-router',
+        options: {
+          routes: path.join(__dirname, 'routes/routes.json')
+        }
+      },
+      './plugins/db',
       './plugins/log-errors',
       './plugins/error-pages'
     ]

@@ -1,19 +1,15 @@
-module.exports = [{
-  method: 'GET',
-  path: '/robots.txt',
-  options: {
-    handler: {
-      file: 'server/public/robots.txt'
+const path = require('path')
+
+module.exports = {
+  handler: {
+    directory: {
+      path: path.resolve(__dirname, '../public'),
+      listing: true,
+      index: true
     }
+  },
+  cache: {
+    privacy: 'private',
+    expiresIn: 60 * 1000 * 2880
   }
-}, {
-  method: 'GET',
-  path: '/public/{path*}',
-  options: {
-    handler: {
-      directory: {
-        path: ['server/public']
-      }
-    }
-  }
-}]
+}
