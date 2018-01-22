@@ -26,5 +26,8 @@
         "stdout"
       ]
     }
+  },
+  "views": {
+    "cache": false
   }
 }
