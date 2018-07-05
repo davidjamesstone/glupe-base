@@ -1,9 +1,4 @@
 #!/bin/bash
 
-mkdir -p server/public/gtm
-mkdir -p server/public/gft/images
-mkdir -p server/public/gft/javascripts
-cp -R node_modules/govuk_frontend_toolkit/images/* server/public/gft/images
-cp -R node_modules/govuk_frontend_toolkit/javascripts/* server/public/gft/javascripts
-cp -R node_modules/govuk_template_mustache/assets/* server/public/gtm/
-cp node_modules/govuk_template_mustache/views/layouts/govuk_template.html server/views/layout.html
+cp node_modules/govuk-frontend/template.njk server/views
+cp -R node_modules/govuk-frontend/components server/views

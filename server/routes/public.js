@@ -8,15 +8,22 @@ module.exports = [{
   }
 }, {
   method: 'GET',
-  path: '/public/{path*}',
+  path: '/assets/all.js',
+  options: {
+    handler: {
+      file: 'node_modules/govuk-frontend/all.js'
+    }
+  }
+}, {
+  method: 'GET',
+  path: '/assets/{path*}',
   options: {
     handler: {
       directory: {
         path: [
           'server/public/static',
-          'server/public/gft',
-          'server/public/gtm',
-          'server/public/build'
+          'server/public/build',
+          'node_modules/govuk-frontend/assets'
         ]
       }
     }
