@@ -4,7 +4,4 @@ node_modules
 npm-debug.log
 logs
 config/server.json
-server/views/layout.html
-server/public/gft
-server/public/gtm
 server/public/build

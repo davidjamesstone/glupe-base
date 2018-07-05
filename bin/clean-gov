@@ -1,4 +1,0 @@
-#!/bin/bash
-
-rm -rf server/public/gft
-rm -rf server/public/gtm
