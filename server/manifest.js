@@ -5,17 +5,9 @@ const analyticsAccount = config.analyticsAccount
 
 const viewsContext = {
   appVersion: pkg.version,
-  globalHeaderText: 'GOV.UK',
+  serviceName: 'Service name',
   pageTitle: 'Service name - GOV.UK',
-  skipLinkMessage: 'Skip to main content',
-  homepageUrl: 'https://www.gov.uk/',
-  logoLinkTitle: 'Go to the GOV.UK homepage',
-  crownCopyrightMessage: '© Crown copyright',
-  assetPath: '/public/',
-  htmlLang: 'en',
-  headerClass: 'with-proposition',
-  analyticsAccount: analyticsAccount,
-  phase: '' // alpha or beta, blank is live and requires no phase banner
+  analyticsAccount: analyticsAccount
 }
 
 const manifest = {
