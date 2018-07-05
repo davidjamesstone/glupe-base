@@ -6,6 +6,8 @@ const analyticsAccount = config.analyticsAccount
 const viewsContext = {
   appVersion: pkg.version,
   assetPath: '/assets',
+  serviceName: 'Service name',
+  pageTitle: 'Service name - GOV.UK',
   analyticsAccount: analyticsAccount
 }
 
@@ -42,8 +44,15 @@ const manifest = {
               },
 
               prepare: (options, next) => {
-                const path = options.path
-                options.compileOptions.environment = nunjucks.configure(path, { watch: false })
+                options.compileOptions.environment = nunjucks.configure([
+                  options.path,
+                  'node_modules/govuk-frontend/',
+                  'node_modules/govuk-frontend/components/'
+                ], {
+                  autoescape: true,
+                  watch: false
+                })
+
                 return next()
               }
             }

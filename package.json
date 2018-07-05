@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "pm2 start config/pm2.json",
-    "copy:gov": "bin/copy-gov",
     "build:css": "bin/build-css",
     "build": "bin/build",
     "lint": "standard",
