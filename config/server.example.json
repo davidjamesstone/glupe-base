@@ -16,7 +16,8 @@
             {
               "log": "*",
               "error": "*",
-              "response": "*"
+              "response": "*",
+              "request": "*"
             }
           ]
         },
