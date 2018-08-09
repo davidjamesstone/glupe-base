@@ -45,7 +45,6 @@ const manifest = {
         }
       },
       './plugins/router',
-      './plugins/log-errors',
       './plugins/error-pages'
     ]
   }
