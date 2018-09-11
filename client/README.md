@@ -1,1 +1,1 @@
-Put browser code in here
+Put client/browser code in here

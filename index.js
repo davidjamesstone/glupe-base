@@ -1,10 +1,9 @@
-const glupe = require('glupe')
-const { manifest, options } = require('./server')
+const server = require('./server')
 
-;(async () => {
-  try {
-    await glupe(manifest, options)
-  } catch (err) {
+server
+  .start()
+  .then(server => console.log(server.info))
+  .catch(err => {
     console.error(err)
-  }
-})()
+    process.exit(1)
+  })

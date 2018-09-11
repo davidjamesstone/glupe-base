@@ -4,28 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start config/pm2.json",
     "lint": "standard",
-    "unit-test": "lab",
+    "unit-test": "lab -v",
     "test": "npm run lint && npm run unit-test"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "boom": "7.1.1",
-    "glupe": "1.0.3",
-    "good": "8.1.0",
-    "good-console": "7.1.0",
-    "good-file": "6.0.1",
-    "good-squeeze": "5.0.2",
+    "boom": "7.2.0",
+    "flappy": "1.0.0",
     "handlebars": "4.0.11",
+    "hapi": "17.5.4",
     "inert": "5.1.0",
-    "joi": "13.1.2",
-    "standard": "11.0.0",
-    "vision": "5.3.1"
+    "joi": "13.6.0",
+    "vision": "5.4.0"
   },
   "devDependencies": {
+    "blipp": "3.0.0",
+    "good": "8.1.1",
+    "good-console": "7.1.0",
+    "good-file": "6.0.1",
+    "good-squeeze": "5.1.0",
     "code": "5.2.0",
-    "lab": "15.2.2"
+    "lab": "16.0.0",
+    "standard": "12.0.1"
   }
 }
