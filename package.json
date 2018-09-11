@@ -13,7 +13,7 @@
   "dependencies": {
     "boom": "7.2.0",
     "flappy": "1.0.0",
-    "handlebars": "4.0.11",
+    "handlebars": "4.0.12",
     "hapi": "17.5.4",
     "inert": "5.1.0",
     "joi": "13.6.0",
@@ -26,7 +26,7 @@
     "good-file": "6.0.1",
     "good-squeeze": "5.1.0",
     "code": "5.2.0",
-    "lab": "16.0.0",
+    "lab": "16.1.0",
     "standard": "12.0.1"
   }
 }
