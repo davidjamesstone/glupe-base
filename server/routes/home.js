@@ -3,10 +3,9 @@ module.exports = {
   path: '/',
   options: {
     handler: (request, h) => {
-      return h.view('home', {
-        title: 'Hello',
-        message: 'World'
-      })
+      return {
+        hello: 'world'
+      }
     }
   }
 }

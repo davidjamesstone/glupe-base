@@ -2,8 +2,10 @@ module.exports = {
   method: 'GET',
   path: '/about',
   options: {
-    handler: {
-      view: 'about'
+    handler: (request, h) => {
+      return {
+        ok: 200
+      }
     }
   }
 }
