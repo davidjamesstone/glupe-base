@@ -1,15 +1,14 @@
 const Lab = require('lab')
 const Code = require('code')
-const glupe = require('glupe')
 const lab = exports.lab = Lab.script()
-const { manifest, options } = require('../server')
+const createServer = require('../server')
 
 lab.experiment('Web test', () => {
   let server
 
-  // Create server before each test
+  // Create server before the tests
   lab.before(async () => {
-    server = await glupe.compose(manifest, options)
+    server = await createServer()
   })
 
   lab.test('GET / route works', async () => {
