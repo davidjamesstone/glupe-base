@@ -3,10 +3,10 @@ const Code = require('code')
 const lab = exports.lab = Lab.script()
 const createServer = require('../server')
 
-lab.experiment('Web test', () => {
+lab.experiment('API test', () => {
   let server
 
-  // Create server before the tests
+  // Create server before each test
   lab.before(async () => {
     server = await createServer()
   })
@@ -19,7 +19,7 @@ lab.experiment('Web test', () => {
 
     const response = await server.inject(options)
     Code.expect(response.statusCode).to.equal(200)
-    Code.expect(response.headers['content-type']).to.include('text/html')
+    Code.expect(response.result).to.equal({ hello: 'world' })
   })
 
   lab.test('GET /about route works', async () => {
@@ -30,6 +30,6 @@ lab.experiment('Web test', () => {
 
     const response = await server.inject(options)
     Code.expect(response.statusCode).to.equal(200)
-    Code.expect(response.headers['content-type']).to.include('text/html')
+    Code.expect(response.result).to.equal({ ok: 200 })
   })
 })

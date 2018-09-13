@@ -4,8 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:css": "bin/build-css",
-    "build": "bin/build",
     "lint": "standard",
     "unit-test": "lab",
     "test": "npm run lint && npm run unit-test",
